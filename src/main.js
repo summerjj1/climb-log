@@ -35,7 +35,7 @@ if (cloudProvider === "cloudbase") {
   $("#video-quality-original").hidden = false;
   $("#video-quality-fast").hidden = false;
   $("#video-quality").value = VIDEO_DEFAULT_QUALITY;
-  $("#video-settings-note").textContent = "快速压缩优先使用硬件加速，最高 1080p、30 帧，保留原速和声音，支持暂停、继续和取消；不支持时请切换其他模式。原视频最大 1 GB、20 分钟，快速压缩结果不超过 1 GB；智能清晰等原有压缩模式仍不超过 200 MB。可选「不压缩」保留原文件和画质，跨设备播放兼容性取决于原视频编码。";
+  $("#video-settings-note").textContent = "快速压缩：最高 1080p、30 帧，目标视频码率最高 3 Mbps。优先硬件加速，保留原速和声音，支持暂停、继续和取消；实际速度取决于设备。原视频最大 1 GB、20 分钟，快速压缩后不超过 1 GB；智能清晰等原有模式不超过 200 MB。不压缩会保留原文件，其他设备能否播放取决于原编码。";
   $("#media-input-limits").textContent = `照片每张 ≤ 20 MB · 原视频每段 ≤ ${VIDEO_INPUT_LIMIT / 1024 ** 3} GB、${VIDEO_DURATION_LIMIT / 60} 分钟`;
 }
 function applyTheme(theme) {
@@ -339,7 +339,12 @@ function render() {
   if (!$("#default-grade").options.length)
     $("#default-grade").innerHTML = gradeOptions();
 }
+$('#toggle-gyms').onclick = () => {
+  const open = $('.sidebar').classList.toggle('gyms-expanded');
+  $('#toggle-gyms').setAttribute('aria-expanded', String(open));
+};
 function renderGyms() {
+  $('#toggle-gyms').textContent = `选择岩馆 · ${selectedGym === 'all' ? '全部线路' : gymName(selectedGym)}`;
   const search = normalizeGymName($("#gym-search").value);
   const matches = state.gyms.filter((gym) => {
     const entry = catalogById.get(gym.catalogId);

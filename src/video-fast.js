@@ -42,5 +42,5 @@ export async function compressFastVideo(file,{signal,onProgress=()=>{},onControl
   onProgress({label:'正在生成视频预览…',percent:99});
   const preview=await prepareOriginalVideo(result.photo,{signal,onProgress:()=>{}});
   if(Math.abs(preview.videoMeta.duration-result.duration)>.6)throw new Error('快速压缩时长校验失败，请选择「智能清晰」。');
-  return {...preview,videoMeta:{duration:result.duration,originalBytes:file.size,fastCompressed:true,width:result.width,height:result.height}};
+  return {...preview,videoMeta:{duration:result.duration,originalBytes:file.size,fastCompressed:true,targetBitrate:result.bitrate,width:result.width,height:result.height}};
 }

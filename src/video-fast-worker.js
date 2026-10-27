@@ -1,3 +1,4 @@
+import {fastVideoProfile} from './video-fast-profile.js';
 import {Input, BlobSource, ALL_FORMATS, Output, Mp4OutputFormat, AppendOnlyStreamTarget, Conversion, canEncodeVideo} from 'mediabunny';
 import {VIDEO_INPUT_LIMIT, VIDEO_DURATION_LIMIT, MEDIA_STORAGE_LIMIT} from './media-limits.js';
 
@@ -33,12 +34,10 @@ async function run(file) {
     if (await video.hasHighDynamicRange()) throw new Error('此视频为 HDR，请选择「不压缩」保留原色彩。');
     const w = await video.getDisplayWidth(), h = await video.getDisplayHeight();
     if (!w || !h || w*h > 3840*2160) throw new Error('快速压缩支持最高 4K 输入，请先降低分辨率。');
-    const scale = Math.min(1,1920/Math.max(w,h),1080/Math.min(w,h));
-    const width = Math.max(2,Math.floor(w*scale/2)*2), height = Math.max(2,Math.floor(h*scale/2)*2);
     progress('正在检查视频帧率…');
     const stats = await video.computePacketStats(100);
-    const frameRate = Math.min(30,stats.averagePacketRate || 30);
-    const bitrate = Math.min(5_000_000,Math.floor(MEDIA_STORAGE_LIMIT*.85*8/duration)-192_000);
+    const {width,height,frameRate,bitrate:targetBitrate,audioBitrate} = fastVideoProfile(w,h,stats.averagePacketRate);
+    const bitrate = Math.min(targetBitrate,Math.floor(MEDIA_STORAGE_LIMIT*.85*8/duration)-audioBitrate-64_000);
     progress('正在检测硬件编码器…');
     if (!await canEncodeVideo('avc',{width,height,bitrate,frameRate,hardwareAcceleration:'prefer-hardware'})) throw new Error(unsupported);
     await checkpoint();
@@ -51,7 +50,7 @@ async function run(file) {
     progress('正在准备快速压缩…');
     conversion = await Conversion.init({input,output,
       video:track => track.id === video.id ? {codec:'avc',width,height,fit:'contain',frameRate,bitrate,hardwareAcceleration:'prefer-hardware',forceTranscode:true,allowTransformationMetadata:false} : {discard:true},
-      audio:track => track.id === audio?.id ? {codec:'aac',bitrate:128_000,numberOfChannels:2,sampleRate:48000} : {discard:true},
+      audio:track => track.id === audio?.id ? {codec:'aac',bitrate:audioBitrate,numberOfChannels:2,sampleRate:48000} : {discard:true},
       tags:{},showWarnings:false,
     });
     if (!conversion.isValid || !conversion.utilizedTracks.includes(video) || (audio && !conversion.utilizedTracks.includes(audio))) throw new Error(unsupported);
@@ -76,7 +75,7 @@ async function run(file) {
         throw new Error('快速压缩后的画面、声音或时长不完整，请选择「智能清晰」。');
     } finally {check.dispose();}
     await checkpoint();
-    postMessage({type:'result',photo,duration,width,height});
+    postMessage({type:'result',photo,duration,width,height,bitrate});
   } catch(error) {
     await conversion?.cancel().catch(()=>{});
     throw error;

@@ -2,7 +2,7 @@
 <html lang="zh-CN" data-theme="pink">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="theme-color" content="#a33665" />
     <meta name="description" content="按岩馆收藏攀岩线路，记录每一次通关。" />
     <title>PanleMEI · 我的线路</title>
@@ -55,6 +55,7 @@
             取消
           </button>
         </form>
+        <button id="toggle-gyms" class="gym-browser-toggle" type="button" aria-expanded="false" aria-controls="gyms gym-search">选择岩馆 · 全部线路</button>
         <div class="gym-directory">
           <label class="sr-only" for="gym-search">搜索岩馆名称或区名</label>
           <input
@@ -225,7 +226,7 @@
             <option value="small" selected>更省空间 · 480p</option>
             <option value="standard">清晰 · 720p</option>
           </select>
-          <p id="video-settings-note">保留原速和声音，压缩后预览再保存。视频一次 1 段，保存上限 20 MB。长视频会自动降低画质以适配保存上限，大文件建议在电脑上处理。首次需加载约 31 MB 工具。</p>
+          <details class="video-help"><summary>画质与上传限制</summary><p id="video-settings-note">保留原速和声音，压缩后预览再保存。视频一次 1 段，保存上限 20 MB。长视频会自动降低画质以适配保存上限，大文件建议在电脑上处理。首次需加载约 31 MB 工具。</p></details>
         </div>
         <label class="dropzone" id="dropzone"
           ><input

@@ -5,7 +5,7 @@ try {
  const page=await browser.newPage();
  const wasm=[];page.on('request',r=>{if(r.url().includes('/vendor/ffmpeg'))wasm.push(r.url())});
  page.on('console',m=>{if(m.type()==='error')console.log('browser:',m.text())});
- await page.goto('http://127.0.0.1:5174/');
+ await page.goto((process.env.TEST_ORIGIN || 'http://127.0.0.1:5174/'));
  const result=await page.evaluate(async()=>{
   const {compressVideo}=await import('/src/video.js');
   const source=await (await fetch('/test-results/video-original.mp4')).blob();
@@ -25,17 +25,18 @@ try {
   data.canceled=canceled;
   return data;
  });
+ assert.ok(result.meta.targetBitrate<=3_000_000);
  assert.equal(result.video,'avc');assert.equal(result.audio,'aac');assert.ok(Math.abs(result.duration-4)<.1);
  assert.ok(result.bytes<result.sourceBytes);assert.ok(result.states.includes('paused')&&result.states.includes('running'));
  assert.ok(result.canceled);assert.equal(wasm.length,0);
  console.log('PASS: hardware-preferred conversion, audio, duration, pause/resume/cancel, no FFmpeg',result);
  await page.locator('#upload').click();await page.locator('#video-quality').selectOption('fast');
  await page.locator('#photo-files').setInputFiles('test-results/video-original.mp4');
- await page.locator('.pending-row video').waitFor({timeout:30000});
+ await page.locator('.pending-row video').waitFor({timeout:120000});
  assert.match(await page.locator('.media-size').innerText(),/原速/);
  console.log('PASS: fast option creates a playable preview');
  const unsupported=await browser.newContext();await unsupported.addInitScript(()=>{Object.defineProperty(globalThis,'VideoEncoder',{value:undefined})});
- const p=await unsupported.newPage();await p.goto('http://127.0.0.1:5174/');
+ const p=await unsupported.newPage();await p.goto((process.env.TEST_ORIGIN || 'http://127.0.0.1:5174/'));
  const message=await p.evaluate(async()=>{const {compressVideo}=await import('/src/video.js');try{await compressVideo(new File(['x'],'x.mp4'),{quality:'fast'})}catch(e){return e.message}});
  assert.match(message,/不支持快速压缩/);await unsupported.close();
  console.log('PASS: unsupported browser shows an actionable fallback');

@@ -2,7 +2,7 @@ import {chromium} from '@playwright/test';
 import assert from 'node:assert/strict';
 const browser=await chromium.launch({channel:'chrome',headless:true});
 try{
- const page=await browser.newPage();await page.goto('http://127.0.0.1:5174/');
+ const page=await browser.newPage();await page.goto((process.env.TEST_ORIGIN || 'http://127.0.0.1:5174/'));
  const result=await page.evaluate(async()=>{
   const {FFmpeg}=await import('/node_modules/@ffmpeg/ffmpeg/dist/esm/index.js');
   const f=new FFmpeg();await f.load({classWorkerURL:'/vendor/ffmpeg/worker.js',coreURL:'/vendor/ffmpeg/ffmpeg-core.js',wasmURL:'/vendor/ffmpeg/ffmpeg-core.wasm'});

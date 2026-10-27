@@ -1,0 +1,10 @@
+import assert from 'node:assert/strict';
+import {fastVideoProfile} from '../src/video-fast-profile.js';
+assert.deepEqual(fastVideoProfile(1920,1080,30),{width:1920,height:1080,frameRate:30,bitrate:3_000_000,audioBitrate:128_000});
+assert.deepEqual(fastVideoProfile(1080,1920,60),{width:1080,height:1920,frameRate:30,bitrate:3_000_000,audioBitrate:128_000});
+assert.equal(fastVideoProfile(3840,2160,30).width,1920);
+assert.ok(fastVideoProfile(1280,720,24).bitrate<3_000_000);
+assert.equal(fastVideoProfile(640,480,NaN).frameRate,30);
+assert.equal(fastVideoProfile(641,481,24).width,640);
+assert.equal(fastVideoProfile(641,481,24).height,480);
+console.log('PASS: 1080p at 3 Mbps, portrait, 4K downscale, low resolution/rate, even dimensions');

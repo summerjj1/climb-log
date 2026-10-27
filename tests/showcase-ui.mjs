@@ -37,6 +37,34 @@ try{
  `}));
  await page.goto(process.env.TEST_ORIGIN || 'http://127.0.0.1:5174/');
  await expect(page.locator('#cloud-status')).toContainText('已读取云端');
+ if(process.env.MOBILE_AUDIT) {
+ for (const width of [390, 320, 1280]) {
+  await page.setViewportSize({width,height:900});
+  await expect.poll(()=>page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+  await page.screenshot({path:`test-results/mobile-refresh-home-${width}.png`});
+  if(width<=760){
+    await page.locator('#toggle-gyms').click();await expect(page.locator('#gym-search')).toBeVisible();
+    await page.locator('#gym-search').fill('另一家');await expect(page.locator('#gyms')).toContainText('另一家岩馆');
+    await page.locator('#gym-search').fill('');await page.locator('#toggle-gyms').click();await expect(page.locator('#gym-search')).not.toBeVisible();
+  }
+  await page.locator('#upload').click();
+  await expect(page.locator('#video-quality')).toHaveValue('fast');
+  await expect(page.locator('#video-settings-note')).not.toBeVisible();
+  await page.locator('.video-help summary').click();
+  await expect(page.locator('#video-settings-note')).toBeVisible();
+  await page.locator('.video-help summary').click();
+  await page.screenshot({path:`test-results/mobile-refresh-upload-${width}.png`});
+  await page.locator('#upload-dialog .close-dialog').click();
+  await page.locator('#gallery .route-card').first().click();
+  await expect(page.locator('#edit-form [name="gymId"]')).toBeVisible();
+  const overflow=await page.locator('#detail-dialog').evaluate(el=>el.scrollWidth>el.clientWidth);
+  expect(overflow).toBe(false);
+  await page.locator('#share-video').scrollIntoViewIfNeeded();
+  await page.screenshot({path:`test-results/mobile-refresh-detail-${width}.png`});
+  await page.locator('#detail-dialog .close-dialog').click();
+ }
+ await page.setViewportSize({width:390,height:844});
+ }
  await page.locator('#edit-nickname').click();await page.locator('#nickname-input').fill('岩上的花 <script>');await page.getByRole('button',{name:'保存昵称',exact:true}).click();
  await expect(page.locator('#edit-nickname')).toContainText('岩上的花 <script>');
  await page.locator('#gallery .route-card').first().click();
