@@ -14,6 +14,7 @@
     "test:video-limits": "node tests/video-limits.mjs",
     "test:cos": "node tests/cos.mjs",
     "build:online": "npm run build && npm run build -- --mode cloudbase --base /tencent/ --outDir dist/tencent",
+    "build:pages": "node data/prepare-video.mjs && node data/build-pages.mjs",
     "test:cloudbase-session": "node tests/cloudbase-session.mjs",
     "test:cloudbase-auth": "node tests/cloudbase-auth.mjs",
     "test:cloudbase-video": "node tests/cloudbase-video.mjs",

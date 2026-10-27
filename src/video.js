@@ -1,4 +1,5 @@
 import { createVideoControl } from './video-control.js';
+import { videoCoreUrl } from './video-core-url.js';
 import { prepareOriginalVideo } from './video-original.js';
 import { VIDEO_COMPRESSION_LIMIT, VIDEO_ORIGINAL_ENABLED, VIDEO_MIME_TYPES, VIDEO_INPUT_LIMIT, MEDIA_STORAGE_LIMIT, VIDEO_DURATION_LIMIT, VIDEO_DEFAULT_QUALITY } from './media-limits.js';
 export { VIDEO_INPUT_LIMIT, MEDIA_STORAGE_LIMIT, VIDEO_DURATION_LIMIT } from './media-limits.js';
@@ -51,13 +52,14 @@ export async function compressVideo(file, { quality = VIDEO_DEFAULT_QUALITY, sig
     const load = async multithread => {
       engine = new FFmpeg();
       const base = multithread ? '/vendor/ffmpeg-mt/' : '/vendor/ffmpeg/';
-      await engine.load({
+      const core = await videoCoreUrl(base, signal);
+      try { await engine.load({
         classWorkerURL: new URL('/vendor/ffmpeg/worker-pause-v1.js', location.origin).href,
         coreURL: new URL(`${base}ffmpeg-core.js`, location.origin).href,
-        wasmURL: new URL(`${base}ffmpeg-core.wasm`, location.origin).href,
+        wasmURL: core.url,
         ...(multithread ? {workerURL: new URL(`${base}ffmpeg-core.worker.js`, location.origin).href} : {}),
         pauseBuffer: control.buffer,
-      });
+      }); } finally { core.release(); }
     };
     const loadWithFallback = async () => {
       try { await load(threads > 1); }
