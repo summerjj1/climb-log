@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 234 50" fill="none" style="color:#243c33" role="img" aria-labelledby="title"><title id="title">PanleMEI · 攀岩手记</title><g fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round">
+<path d="M10 43V18C10 9.7 15.9 5 24 5C33.4 5 40 11.3 40 20C40 29 34.2 35 25 35H20"/>
+<path d="m18 26 7-12 5 8 5-5" stroke-width="2.8"/>
+</g><circle cx="35" cy="17" r="3.2" fill="var(--brand-accent, #aa492d)"/><g transform="translate(58 11)" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+<path d="M2 28V4H10C24 4 24 18 10 18H2"/>
+<path d="M39 28V13M39 20.5C39 10 25 10 25 20.5S39 31 39 20.5"/>
+<path d="M48 28V13M48 20C48 10 62 10 62 20V28"/>
+<path d="M72 4V25Q72 28 75 28"/>
+<path d="M83 20H98C98 9 82 9 82 20C82 29 92 31 98 26"/>
+<g stroke-width="3.8"><path d="M111 28V4L121 19L131 4V28"/><path d="M155 4H142V28H155M142 16H153"/><path d="M167 4V28"/></g>
+</g></svg>

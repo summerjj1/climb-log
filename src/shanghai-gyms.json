@@ -1,0 +1,690 @@
+{
+  "city": "上海",
+  "checkedAt": "2026-10-26",
+  "complete": false,
+  "scope": "公开资料收录的攀岩场馆及分店，未获得全市完整名录；不保证实时营业状态。",
+  "gyms": [
+    {
+      "id": "sh-b0j3lmai5n",
+      "name": "5+攀岩南翔黑钻馆（上海南翔太茂商业广场店）",
+      "district": "嘉定区",
+      "address": "上海市嘉定区丰翔路3168号1幢三楼307B",
+      "sources": ["https://map.gaode.com/place/B0J3LMAI5N"],
+      "aliases": []
+    },
+    {
+      "id": "sh-b0kddl9c4o",
+      "name": "啸岩攀岩（嘉亭荟店）",
+      "district": "嘉定区",
+      "address": "上海市嘉定区墨玉南路1055嘉亭荟城市生活广场F1层",
+      "sources": ["https://map.gaode.com/place/B0KDDL9C4O"],
+      "aliases": []
+    },
+    {
+      "id": "sh-b0hdjuvlex",
+      "name": "尽峰攀岩（嘉定馆）",
+      "district": "嘉定区",
+      "address": "上海市嘉定区白银路288弄莘潮国际家居东门(外街1楼)",
+      "sources": ["https://map.gaode.com/place/B0HDJUVLEX"],
+      "aliases": ["尽峰攀岩（嘉定馆）"]
+    },
+    {
+      "id": "sh-b0lb5k1xi7",
+      "name": "攀王攀岩（南翔店）",
+      "district": "嘉定区",
+      "address": "上海市嘉定区沪宜公路1082号翔立方B区5幢",
+      "sources": ["https://www.amap.com/place/B0LB5K1XI7"],
+      "aliases": []
+    },
+    {
+      "id": "sh-b0mbocxkwb",
+      "name": "枸奇岛攀岩（江桥万达店）",
+      "district": "嘉定区",
+      "address": "上海市嘉定区万达广场(上海江桥店)(金运路地铁站1号口步行340米)",
+      "sources": ["https://map.gaode.com/place/B0MBOCXKWB"],
+      "aliases": []
+    },
+    {
+      "id": "sh-6c3052727000",
+      "name": "奉贤体育中心攀岩馆",
+      "district": "奉贤区",
+      "address": "奉贤区体育中心",
+      "sources": ["https://huodong.com/venue/detail/eyuKQ"],
+      "aliases": []
+    },
+    {
+      "id": "sh-c52ab0ed3c5c",
+      "name": "攀岩小将步步高攀岩馆",
+      "district": "奉贤区",
+      "address": "南桥运河北路与南桥环城东路交叉口东160米",
+      "sources": ["https://huodong.com/venue/detail/eyulI"],
+      "aliases": []
+    },
+    {
+      "id": "sh-3d424abccc32",
+      "name": "攀猩攀岩（南桥百联店）",
+      "district": "奉贤区",
+      "address": "百联南桥购物中心",
+      "sources": ["https://huodong.com/venue/detail/eyuKE"],
+      "aliases": []
+    },
+    {
+      "id": "sh-25a26892b65e",
+      "name": "向上攀岩",
+      "district": "宝山区",
+      "address": "江杨南路485号15号楼202",
+      "sources": ["https://hylonomus.com.cn/zh/contact-us-dealership/"],
+      "aliases": []
+    },
+    {
+      "id": "sh-e8fce8972349",
+      "name": "攀岩工厂",
+      "district": "宝山区",
+      "address": "长江西路855号博绣荟文创园E区",
+      "sources": ["https://you.ctrip.com/sight/shanghai2/108257525.html"],
+      "aliases": ["顽酷运动工厂"]
+    },
+    {
+      "id": "sh-f47bd48a219f",
+      "name": "攀猩攀岩（宝乐汇印象城店）",
+      "district": "宝山区",
+      "address": "宝乐汇印象城B1层西侧",
+      "sources": ["https://huodong.com/venue/detail/eyuKG"],
+      "aliases": []
+    },
+    {
+      "id": "sh-3758188eeb0c",
+      "name": "攀猩攀岩（宝山日月光店）",
+      "district": "宝山区",
+      "address": "日月光中心宝山店L1层",
+      "sources": ["https://huodong.com/venue/detail/aaawxm"],
+      "aliases": []
+    },
+    {
+      "id": "sh-b0j2xsn1hd",
+      "name": "智慧湾南桥空间攀岩场",
+      "district": "宝山区",
+      "address": "上海市宝山区共和新路5895号(呼兰路地铁站1号口步行210米)",
+      "sources": ["https://www.amap.com/place/B0J2XSN1HD"],
+      "aliases": []
+    },
+    {
+      "id": "sh-61ce216f79bb",
+      "name": "庙镇515文创产业园攀岩馆",
+      "district": "崇明区",
+      "address": "庙镇515文创产业园",
+      "sources": ["https://m.thepaper.cn/newsDetail_forward_32601502"],
+      "aliases": []
+    },
+    {
+      "id": "sh-926317e3a465",
+      "name": "长兴岛郊野公园攀岩乐园",
+      "district": "崇明区",
+      "address": "长兴岛郊野公园内",
+      "sources": [
+        "https://shcm.gov.cn/bmpd/019014/019014002/20250919/6bccad84-aee5-414d-9713-928d02c5c403.html"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "sh-9751b77da3f4",
+      "name": "DOME 攀岩（徐汇万科广场店）",
+      "district": "徐汇区",
+      "address": "徐汇万科广场",
+      "sources": ["https://huodong.com/venue/detail/aaawof"],
+      "aliases": ["DOME 攀岩营地(徐汇万科广场)"]
+    },
+    {
+      "id": "sh-b0lul7axni",
+      "name": "GOAT攀岩俱乐部（徐家汇TPY中心店）",
+      "district": "徐汇区",
+      "address": "上海市徐汇区肇嘉浜路1117号TPY中心八楼",
+      "sources": ["https://www.amap.com/place/B0LUL7AXNI"],
+      "aliases": []
+    },
+    {
+      "id": "sh-d5f8e1c38694",
+      "name": "GYM 攀岩馆（绿地缤纷城店）",
+      "district": "徐汇区",
+      "address": "东安路562号绿地缤纷城东区B1层",
+      "sources": ["https://huodong.com/venue/detail/aaawod"],
+      "aliases": []
+    },
+    {
+      "id": "sh-51a1f4ddbf05",
+      "name": "STAR 星岩攀岩俱乐部",
+      "district": "徐汇区",
+      "address": "",
+      "sources": ["https://huodong.com/venue/detail/aaawog"],
+      "aliases": ["STAR星岩攀岩俱乐部"]
+    },
+    {
+      "id": "sh-cbdfb18f0b3d",
+      "name": "Stonehaven 攀岩馆（龙华会店）",
+      "district": "徐汇区",
+      "address": "龙华会",
+      "sources": [
+        "https://www.smartshanghai.com/articles/sports-and-recreation/the-collection-rock-climbing-gyms"
+      ],
+      "aliases": ["Stonehaven攀岩馆"]
+    },
+    {
+      "id": "sh-0432f66023fe",
+      "name": "乐动力尽峰攀岩（西岸馆）",
+      "district": "徐汇区",
+      "address": "龙腾大道",
+      "sources": ["https://huodong.com/venue/detail/aaawoe"],
+      "aliases": ["乐动力尽峰攀岩西岸馆"]
+    },
+    {
+      "id": "sh-9fc7b9842ee6",
+      "name": "岩时攀岩（西岸梦中心店）",
+      "district": "徐汇区",
+      "address": "龙腾大道2266号西岸梦中心12号楼201室",
+      "sources": ["https://hylonomus.com.cn/zh/contact-us-dealership/"],
+      "aliases": ["岩时攀岩(Gate M西岸梦中心)"]
+    },
+    {
+      "id": "sh-e0862e0d9e72",
+      "name": "GOAT 攀岩俱乐部（普陀 TopOne 店）",
+      "district": "普陀区",
+      "address": "真南路1199弄19号桃浦湾TopOne B1025",
+      "sources": ["https://huodong.com/venue/detail/aaawuq"],
+      "aliases": ["GOAT攀岩俱乐部(普陀TopOne店)", "GOAT 1.0"]
+    },
+    {
+      "id": "sh-a941c3aad063",
+      "name": "大岩悦动攀岩（长风大悦城店）",
+      "district": "普陀区",
+      "address": "大渡河路196号长风大悦城5楼",
+      "sources": ["https://hylonomus.com.cn/zh/contact-us-dealership/"],
+      "aliases": ["大岩悦动攀岩中心", "大岩悦动攀岩场"]
+    },
+    {
+      "id": "sh-c857052f8fa6",
+      "name": "尽峰攀岩（189弄店）",
+      "district": "普陀区",
+      "address": "189弄购物中心",
+      "sources": [
+        "https://www.smartshanghai.com/articles/sports-and-recreation/the-collection-rock-climbing-gyms"
+      ],
+      "aliases": ["尽峰攀岩（189弄购物中心）"]
+    },
+    {
+      "id": "sh-42b0450011ca",
+      "name": "攀猩攀岩（中环百联店）",
+      "district": "普陀区",
+      "address": "真光路1258号百联中环购物广场1楼",
+      "sources": ["https://huodong.com/venue/detail/fbvweo"],
+      "aliases": []
+    },
+    {
+      "id": "sh-bdb1c8e6eff9",
+      "name": "AOB 攀研学院（创智天地店）",
+      "district": "杨浦区",
+      "address": "淞沪路252号地下一层01、02、03室",
+      "sources": ["https://www.jfdaily.com/sgh/detail?id=4051320"],
+      "aliases": ["AOB攀研学院（创智天地店）"]
+    },
+    {
+      "id": "sh-882e151dcea5",
+      "name": "TA山攀岩（百联又一城店）",
+      "district": "杨浦区",
+      "address": "淞沪路8号百联又一城购物中心8楼南区",
+      "sources": ["https://www.jfdaily.com/sgh/detail?id=4051320"],
+      "aliases": ["TA山攀岩", "TA山攀岩馆"]
+    },
+    {
+      "id": "sh-fb502bfd51fd",
+      "name": "共绘攀岩馆（叶岩）",
+      "district": "杨浦区",
+      "address": "国顺东路800号西楼2楼",
+      "sources": ["https://www.jfdaily.com/sgh/detail?id=4051320"],
+      "aliases": [
+        "叶岩攀岩馆",
+        "RIBBONCLIMBING攀岩馆",
+        "上海叶岩攀岩馆(上海800艺术区-西楼店)"
+      ]
+    },
+    {
+      "id": "sh-ea3c6ec3ad82",
+      "name": "共青森林公园攀岩馆",
+      "district": "杨浦区",
+      "address": "军工路2000号共青森林公园内",
+      "sources": ["https://www.jfdaily.com/sgh/detail?id=4051320"],
+      "aliases": ["上海共青森林公园-攀岩射击馆"]
+    },
+    {
+      "id": "sh-b0h6j5f94y",
+      "name": "5+攀岩松江云间馆",
+      "district": "松江区",
+      "address": "上海市松江区松汇东路327号云间粮仓创意园西15幢",
+      "sources": ["https://www.amap.com/place/B0H6J5F94Y"],
+      "aliases": []
+    },
+    {
+      "id": "sh-b0ffipc173",
+      "name": "山艺攀岩",
+      "district": "松江区",
+      "address": "上海市松江区嘉松南路228号(松江新城地铁站1号口旁)",
+      "sources": ["https://www.amap.com/place/B0FFIPC173"],
+      "aliases": []
+    },
+    {
+      "id": "sh-b0i61a7b5w",
+      "name": "DYNO Park 攀岩馆（盈丰天地店）",
+      "district": "浦东新区",
+      "address": "上海市浦东新区龙阳路2233号盈丰天地B1层B1010",
+      "sources": ["https://www.amap.com/place/B0I61A7B5W"],
+      "aliases": ["DYNOPARK攀岩馆"]
+    },
+    {
+      "id": "sh-b0lgguuxje",
+      "name": "Le Mont 攀岩馆（西营南路店）",
+      "district": "浦东新区",
+      "address": "上海市浦东新区西营南路555号2层217室",
+      "sources": ["https://map.gaode.com/place/B0LGGUUXJE"],
+      "aliases": ["Le Mont Climbing Gym攀岩馆"]
+    },
+    {
+      "id": "sh-b0m6dx7up8",
+      "name": "SIZER抱石攀岩馆（康恒路）",
+      "district": "浦东新区",
+      "address": "上海市浦东新区御桥路与康恒路交叉口东南160米",
+      "sources": ["https://www.amap.com/place/B0M6DX7UP8"],
+      "aliases": []
+    },
+    {
+      "id": "sh-b0jr1urz26",
+      "name": "Vmore 攀岩馆（浦东崮山路店）",
+      "district": "浦东新区",
+      "address": "上海市浦东新区洋泾街道崮山路500号明悦大厦508室",
+      "sources": ["https://map.gaode.com/place/B0JR1URZ26"],
+      "aliases": ["Vmore攀岩馆"]
+    },
+    {
+      "id": "sh-b0i2hmy8tx",
+      "name": "优加攀岩（唐镇店）",
+      "district": "浦东新区",
+      "address": "上海市浦东新区高科东路恒生万鹂广场6B号楼东门入口一层",
+      "sources": ["https://map.gaode.com/place/B0I2HMY8TX"],
+      "aliases": []
+    },
+    {
+      "id": "sh-6f87fa91dba4",
+      "name": "优石攀岩 UROCK",
+      "district": "浦东新区",
+      "address": "金湘路1000号5-F2室",
+      "sources": ["https://hylonomus.com.cn/zh/contact-us-dealership/"],
+      "aliases": ["优石攀岩馆", "优石攀岩UROCK CLIMBING"]
+    },
+    {
+      "id": "sh-b0lkpc04fr",
+      "name": "岩时攀岩（陆悦天地店）",
+      "district": "浦东新区",
+      "address": "上海市浦东新区陆悦天地金星二楼209",
+      "sources": ["https://map.gaode.com/place/B0LKPC04FR"],
+      "aliases": []
+    },
+    {
+      "id": "sh-193e406e614a",
+      "name": "岩舞空间（临港万达店）",
+      "district": "浦东新区",
+      "address": "临港万达广场1层",
+      "sources": ["https://huodong.com/venue/detail/aaawrz"],
+      "aliases": []
+    },
+    {
+      "id": "sh-1ca8a6aecb51",
+      "name": "岩舞空间（梅赛德斯奔驰店）",
+      "district": "浦东新区",
+      "address": "世博大道1200号梅赛德斯-奔驰文化中心B1层",
+      "sources": ["https://you.ctrip.com/sight/shanghai2/3984913.html"],
+      "aliases": ["岩舞空间攀岩(梅赛德斯奔驰旗舰店)"]
+    },
+    {
+      "id": "sh-b0jdrrtds8",
+      "name": "攀猩儿童攀岩馆（新达汇·三林店）",
+      "district": "浦东新区",
+      "address": "上海市浦东新区永泰路1058弄1-26号B1层中庭",
+      "sources": ["https://www.amap.com/place/B0JDRRTDS8"],
+      "aliases": []
+    },
+    {
+      "id": "sh-b0k06a4z07",
+      "name": "攀猩儿童攀岩馆（百联川沙店）",
+      "district": "浦东新区",
+      "address": "川沙路5398号百联川沙购物中心F1层",
+      "sources": ["https://www.amap.com/place/B0K06A4Z07"],
+      "aliases": ["攀猩儿童攀岩馆"]
+    },
+    {
+      "id": "sh-b0m615i6fn",
+      "name": "攀猩攀岩（唐镇阳光天地店）",
+      "district": "浦东新区",
+      "address": "上海市浦东新区唐镇高科东路777号1号阳光天地购物中心(唐镇店)",
+      "sources": ["https://www.amap.com/place/B0M615I6FN"],
+      "aliases": ["攀猩攀岩"]
+    },
+    {
+      "id": "sh-8cd2d789eddf",
+      "name": "极壁风暴攀岩馆（浦东店）",
+      "district": "浦东新区",
+      "address": "杨高南路729号101室",
+      "sources": ["https://hylonomus.com.cn/zh/contact-us-dealership/"],
+      "aliases": []
+    },
+    {
+      "id": "sh-7b8adfc7257d",
+      "name": "AOB 攀研学院（虹口馆）",
+      "district": "虹口区",
+      "address": "",
+      "sources": [
+        "https://www.smartshanghai.com/articles/sports-and-recreation/the-collection-rock-climbing-gyms"
+      ],
+      "aliases": ["AOB攀研学院（虹口馆）"]
+    },
+    {
+      "id": "sh-f0db6637e49a",
+      "name": "Benchmark 2.0（滨港商业中心店）",
+      "district": "虹口区",
+      "address": "滨港商业中心",
+      "sources": [
+        "https://www.smartshanghai.com/articles/sports-and-recreation/the-collection-rock-climbing-gyms"
+      ],
+      "aliases": ["Benchmark攀岩馆·潮荟玩（滨港商业中心店）"]
+    },
+    {
+      "id": "sh-614bca07a241",
+      "name": "Vmore 攀岩馆（北外滩店）",
+      "district": "虹口区",
+      "address": "友邦金融中心L104/105/106",
+      "sources": ["https://huodong.com/venue/detail/kiljgn"],
+      "aliases": ["vmore攀岩馆(北外滩店)"]
+    },
+    {
+      "id": "sh-96978e5902c3",
+      "name": "啸岩馆（虹口花园路店）",
+      "district": "虹口区",
+      "address": "花园路128号运动LOFT一街区A座105室",
+      "sources": [
+        "https://www.smartshanghai.com/articles/sports-and-recreation/the-collection-rock-climbing-gyms"
+      ],
+      "aliases": ["啸岩馆"]
+    },
+    {
+      "id": "sh-65d4c6c7d342",
+      "name": "小树攀岩 SHU（虹口馆）",
+      "district": "虹口区",
+      "address": "东江湾路444号虹口足球场21看台楼上",
+      "sources": ["https://hylonomus.com.cn/zh/contact-us-dealership/"],
+      "aliases": ["小树攀岩馆", "小树攀岩馆SHU Climbing GYM(虹口馆)"]
+    },
+    {
+      "id": "sh-b5d66c5ff28d",
+      "name": "此山攀岩（北外滩来福士店）",
+      "district": "虹口区",
+      "address": "北外滩来福士商场一楼",
+      "sources": ["https://huodong.com/venue/detail/aaawuf"],
+      "aliases": []
+    },
+    {
+      "id": "sh-b0l0blunax",
+      "name": "Benchmark攀岩馆·荟聚中心",
+      "district": "长宁区",
+      "address": "上海市长宁区金钟路788号上海荟聚Livat F3层",
+      "sources": ["https://www.amap.com/place/B0L0BLUNAX"],
+      "aliases": []
+    },
+    {
+      "id": "sh-a47148df3235",
+      "name": "DOME 攀岩（定西路店）",
+      "district": "长宁区",
+      "address": "定西路759号上海映巷创意工场4楼4B",
+      "sources": ["https://huodong.com/venue/detail/aaawuu"],
+      "aliases": ["DOME Climber's Camp(定西路店)"]
+    },
+    {
+      "id": "sh-390fb1c35b95",
+      "name": "LAPUTA 攀岩（长宁来福士店）",
+      "district": "长宁区",
+      "address": "长宁来福士广场西区一楼中庭",
+      "sources": ["https://huodong.com/venue/detail/aaawuz"],
+      "aliases": ["LAPUTA 攀岩"]
+    },
+    {
+      "id": "sh-cb60bd554c14",
+      "name": "无界攀岩（King88店）",
+      "district": "长宁区",
+      "address": "长宁路88号3层3-12、3-15室",
+      "sources": ["https://zwgk.shcn.gov.cn/xxgk/tpxw-yshj/2026/20/80102.html"],
+      "aliases": ["无界攀岩", "爬客攀岩馆", "派客攀岩"]
+    },
+    {
+      "id": "sh-920d2ecf5923",
+      "name": "极壁风暴攀岩馆（百联西郊店）",
+      "district": "长宁区",
+      "address": "百联西郊购物中心",
+      "sources": ["https://huodong.com/venue/detail/aaawup"],
+      "aliases": []
+    },
+    {
+      "id": "sh-f95464dcf023",
+      "name": "香蕉攀岩（延安西路店）",
+      "district": "长宁区",
+      "address": "昭化路658号104、105室",
+      "sources": ["https://www.bananaclimbing.com/"],
+      "aliases": []
+    },
+    {
+      "id": "sh-e0183b190e96",
+      "name": "香蕉攀岩（金虹桥店）",
+      "district": "长宁区",
+      "address": "茅台路179号金虹桥国际中心L2",
+      "sources": ["https://www.bananaclimbing.com/"],
+      "aliases": []
+    },
+    {
+      "id": "sh-b0lksaia8x",
+      "name": "DOME攀岩（闵行店）",
+      "district": "闵行区",
+      "address": "上海市闵行区联友路388号上海虹桥前湾印象城MEGAL4层",
+      "sources": ["https://www.amap.com/place/B0LKSAIA8X"],
+      "aliases": []
+    },
+    {
+      "id": "sh-cad6c182fa34",
+      "name": "克莱攀岩公园",
+      "district": "闵行区",
+      "address": "益梅路91号力波创意园7号楼",
+      "sources": ["https://www.sohu.com/a/873622317_121119642"],
+      "aliases": []
+    },
+    {
+      "id": "sh-222bd697eb04",
+      "name": "嘿抱攀岩（上海万象城店）",
+      "district": "闵行区",
+      "address": "吴中路1599号3层L339c",
+      "sources": [
+        "https://zwgk.shmh.gov.cn/mh-xxgk-cms/website/mh_xxgk/xzxk23/content/6d0c42c3-742a-4d61-8a9d-9d81b9055154.htm"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "sh-e38bec45b683",
+      "name": "尽峰攀岩（闵行馆）",
+      "district": "闵行区",
+      "address": "罗锦路218号1号门5号楼",
+      "sources": ["https://www.sohu.com/a/873622317_121119642"],
+      "aliases": []
+    },
+    {
+      "id": "sh-929567b59814",
+      "name": "岩界攀岩运动中心",
+      "district": "闵行区",
+      "address": "北翟路5101号6幢101室",
+      "sources": ["https://www.sohu.com/a/873622317_121119642"],
+      "aliases": []
+    },
+    {
+      "id": "sh-75cc0fc7af64",
+      "name": "岩顶攀岩（丰尚国际广场店）",
+      "district": "闵行区",
+      "address": "运乐路569弄丰尚国际广场3号楼中庭",
+      "sources": ["https://www.sohu.com/a/873622317_121119642"],
+      "aliases": ["岩顶攀岩"]
+    },
+    {
+      "id": "sh-feabadfbe5ca",
+      "name": "德英乐攀岩天地",
+      "district": "闵行区",
+      "address": "七莘路3568号",
+      "sources": [
+        "https://zwgk.shmh.gov.cn/mh-xxgk-cms/website/mh_xxgk/xzxk23/content/51b2cf4c-73c3-4326-84c2-737d0722f623.htm"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "sh-cf7091d5cfd2",
+      "name": "此山攀岩（虹桥天街店）",
+      "district": "闵行区",
+      "address": "申长路869号1层及4层",
+      "sources": [
+        "https://zwgk.shmh.gov.cn/mh-xxgk-cms/website/mh_xxgk/xzxk23/content/a4fec188-a3a2-44aa-a723-8751ef6bda09.htm"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "sh-a49f8c71124f",
+      "name": "登拓攀岩（春申馆）",
+      "district": "闵行区",
+      "address": "",
+      "sources": ["https://huodong.com/venue/detail/aaawxy"],
+      "aliases": []
+    },
+    {
+      "id": "sh-08baebd1d6ed",
+      "name": "红攀攀岩（浦江城市生活广场店）",
+      "district": "闵行区",
+      "address": "江月路1850弄城市生活广场1楼C座",
+      "sources": ["https://hylonomus.com.cn/zh/contact-us-dealership/"],
+      "aliases": ["红攀攀岩馆", "红攀攀岩体验中心(浦江城市生活广场店)"]
+    },
+    {
+      "id": "sh-b0k2o6vtpk",
+      "name": "J.Climbing攀岩青立方馆",
+      "district": "青浦区",
+      "address": "上海市青浦区秀泽路与汇金路交叉口东100米",
+      "sources": ["https://www.amap.com/place/B0K2O6VTPK"],
+      "aliases": []
+    },
+    {
+      "id": "sh-58bd1443da24",
+      "name": "J攀岩运动馆（淀山湖大道店）",
+      "district": "青浦区",
+      "address": "淀山湖大道1079弄53号",
+      "sources": ["https://huodong.com/venue/detail/fuxhro"],
+      "aliases": ["J攀岩运动馆"]
+    },
+    {
+      "id": "sh-a63d32814d60",
+      "name": "攀猩攀岩（青浦吾悦广场店）",
+      "district": "青浦区",
+      "address": "青浦吾悦广场B1层",
+      "sources": ["https://huodong.com/venue/detail/aaawrk"],
+      "aliases": ["攀猩·攀岩拓展(上海青浦吾悦广场店)"]
+    },
+    {
+      "id": "sh-f6cd961d7c48",
+      "name": "TBW 极限运动中心跑酷抱石馆",
+      "district": "静安区",
+      "address": "永和东路653号1幢169号",
+      "sources": ["https://huodong.com/venue/detail/tzkqse"],
+      "aliases": ["TBW极限运动中心跑酷抱石馆"]
+    },
+    {
+      "id": "sh-57e8de447799",
+      "name": "攀竞 PERKY SPORTS（静安馆）",
+      "district": "静安区",
+      "address": "江宁路420号和一大厦北面1层",
+      "sources": [
+        "https://www.smartshanghai.com/articles/sports-and-recreation/the-collection-rock-climbing-gyms"
+      ],
+      "aliases": ["攀岩主义·静安馆", "攀岩主义静安馆", "攀竞体育(静安馆)"]
+    },
+    {
+      "id": "sh-1b0b6fa72e9e",
+      "name": "酸爽攀岩（永和东路店）",
+      "district": "静安区",
+      "address": "永和东路643号2幢L180室",
+      "sources": ["https://www.amap.com/place/B0G27BDYVG"],
+      "aliases": ["酸爽攀岩", "High Five攀岩运动中心(静安店)"]
+    },
+    {
+      "id": "sh-ef504cf0413c",
+      "name": "难点攀岩 Beta Boulders",
+      "district": "静安区",
+      "address": "昌化路667号S1室",
+      "sources": ["https://huodong.com/venue/detail/aaawur"],
+      "aliases": ["BetaBouldersClimbingGYM难点攀岩馆"]
+    },
+    {
+      "id": "sh-4138985830e6",
+      "name": "香蕉攀岩 BANANA+（嘉里合集店）",
+      "district": "静安区",
+      "address": "天目西路218号嘉里合集B1层",
+      "sources": ["https://www.bananaclimbing.com/"],
+      "aliases": ["香蕉攀岩(嘉里合集店)", "BANANA+香蕉攀岩(嘉里合集店)"]
+    },
+    {
+      "id": "sh-c8cca4cb35f6",
+      "name": "1778 Climbing 攀岩馆",
+      "district": "黄浦区",
+      "address": "南浦大桥地铁站附近",
+      "sources": [
+        "https://www.smartshanghai.com/articles/sports-and-recreation/the-collection-rock-climbing-gyms"
+      ],
+      "aliases": ["1778攀岩馆"]
+    },
+    {
+      "id": "sh-239fb3ab5c18",
+      "name": "天宇攀登（新世界城店）",
+      "district": "黄浦区",
+      "address": "南京西路2-68号新世界城3F中庭",
+      "sources": ["https://www.sohu.com/a/873622317_121119642"],
+      "aliases": ["新世界天宇攀登"]
+    },
+    {
+      "id": "sh-9ccfcf13dcee",
+      "name": "岩时攀岩（新天地东台里店）",
+      "district": "黄浦区",
+      "address": "吉安路111号新天地东台里",
+      "sources": ["https://www.10100.com/article/146423032"],
+      "aliases": []
+    },
+    {
+      "id": "sh-0a4d296c8c83",
+      "name": "红猩猩攀岩馆",
+      "district": "黄浦区",
+      "address": "制造局路833弄26号",
+      "sources": ["https://huodong.com/venue/detail/aaawov"],
+      "aliases": []
+    },
+    {
+      "id": "sh-0f143e5161d2",
+      "name": "香蕉攀岩（淮海龙凤PRSCO店）",
+      "district": "黄浦区",
+      "address": "淮海中路728号龙凤PRSCO四层01–03室",
+      "sources": ["https://www.bananaclimbing.com/"],
+      "aliases": []
+    },
+    {
+      "id": "sh-4ebef1cabbfa",
+      "name": "魔岩攀登（南京东路店）",
+      "district": "黄浦区",
+      "address": "汉口路340号黄浦市民健身中心A楼3层",
+      "sources": ["https://you.ctrip.com/sight/shanghai2/2483105.html"],
+      "aliases": []
+    }
+  ]
+}

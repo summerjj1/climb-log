@@ -1,0 +1,16 @@
+{
+  "version": "2.0",
+  "statement": [
+    {
+      "effect": "allow",
+      "action": [
+        "name/cos:PutObject",
+        "name/cos:GetObject",
+        "name/cos:DeleteObject"
+      ],
+      "resource": [
+        "qcs::cos:ap-shanghai:uid/1517391545:mei-climb-media-1517391545/mei-climb/*"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+Video processing uses ffmpeg.wasm.
+
+@ffmpeg/ffmpeg 0.12.15 — MIT License
+Copyright (c) ffmpeg.wasm contributors.
+Source and license: https://github.com/ffmpegwasm/ffmpeg.wasm
+
+@ffmpeg/core 0.12.10 — GPL-2.0-or-later
+The distributed core includes FFmpeg and its codec libraries, including x264.
+Corresponding build scripts and sources: https://github.com/ffmpegwasm/ffmpeg.wasm
+FFmpeg source and licenses: https://ffmpeg.org/download.html and https://ffmpeg.org/legal.html
+x264 source and license: https://code.videolan.org/videolan/x264
+License text: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+
+These tools run locally in a browser worker; video inputs are not sent to a third-party transcoding service.

@@ -1,0 +1,36 @@
+{
+  "name": "climb-log",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "test": "node tests/catalog.mjs && node tests/cloud.mjs && node tests/e2e.mjs && node tests/cloud-e2e.mjs",
+    "predev": "node data/prepare-video.mjs",
+    "prebuild": "node data/prepare-video.mjs",
+    "test:video": "node tests/video-e2e.mjs && VIDEO_E2E=1 node tests/cloud-e2e.mjs",
+    "test:video-limits": "node tests/video-limits.mjs",
+    "test:cos": "node tests/cos.mjs",
+    "build:online": "npm run build && npm run build -- --mode cloudbase --base /tencent/ --outDir dist/tencent",
+    "test:cloudbase-session": "node tests/cloudbase-session.mjs",
+    "test:cloudbase-auth": "node tests/cloudbase-auth.mjs",
+    "test:cloudbase-video": "node tests/cloudbase-video.mjs",
+    "test:showcase": "node tests/showcase-rls.mjs && node tests/showcase-ui.mjs"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "0.5.12",
+    "@playwright/test": "^1.56.0",
+    "vite": "^7.0.0"
+  },
+  "dependencies": {
+    "@cloudbase/js-sdk": "3.10.4",
+    "@ffmpeg/core": "^0.12.10",
+    "@ffmpeg/core-mt": "0.12.10",
+    "@ffmpeg/ffmpeg": "^0.12.15",
+    "@supabase/supabase-js": "^2.118.0",
+    "cos-nodejs-sdk-v5": "^3.0.0",
+    "mediabunny": "1.62.1"
+  }
+}

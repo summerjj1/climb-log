@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-26T05:35:00Z",
+  "title": "PanleMEI 设计系统",
+  "extensions": {
+    "brand": {
+      "name": "PanleMEI",
+      "construction": "Hand-authored SVG P-shaped climbing loop, ascending route and custom mixed-case wordmark; heavier MEI strokes.",
+      "viewBox": "0 0 234 50",
+      "width": {
+        "desktop": "184px",
+        "mobile": "174px",
+        "mobileMaxWidth": "760px"
+      },
+      "theme": {
+        "stroke": "currentColor (inherited --ink)",
+        "endpoint": "--brand-accent: var(--orange); the existing orange stays unchanged in both inline themes",
+        "exportBehavior": "Standalone SVG files have fixed forest or pink colors. The pink export uses its pink primary color for the endpoint; the inline header preserves the orange endpoint."
+      },
+      "source": "index.html (inline SVG); src/style.css (.brand)",
+      "assets": {
+        "forest": "public/brand/panlemei-logo.svg",
+        "pink": "public/brand/panlemei-logo-pink.svg",
+        "mark": "public/brand/panlemei-mark.svg",
+        "favicon": "public/favicon.svg"
+      },
+      "provenance": "Hand-authored SVG paths; no shipping raster assets for this brand change."
+    },
+    "shadows": [
+      {
+        "name": "dialog",
+        "value": "0 20px 80px #182b3333",
+        "purpose": "隔离图片导入与线路编辑"
+      }
+    ],
+    "motion": [{ "name": "control", "value": "180ms", "purpose": "按钮反馈" }],
+    "breakpoints": [
+      { "name": "mobile", "value": "760px" },
+      { "name": "compact", "value": "1150px" },
+      { "name": "wide", "value": "1500px" }
+    ]
+  },
+  "narrative": {
+    "northStar": "攀岩手记",
+    "overview": "照片为主体，岩馆与难度可快速检索。",
+    "rules": [
+      {
+        "name": "状态可读",
+        "body": "通关状态同时使用图标、文字与颜色。",
+        "section": "colors"
+      }
+    ],
+    "dos": ["照片详情完整显示"],
+    "donts": ["不伪造用户记录"]
+  }
+}

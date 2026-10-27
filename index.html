@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="pink">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#a33665" />
+    <meta name="description" content="按岩馆收藏攀岩线路，记录每一次通关。" />
+    <title>PanleMEI · 我的线路</title>
+    <script>
+      // Restore the theme before the first paint; blocked storage keeps the default.
+      try {
+        if (localStorage.getItem("climb-log-theme") === "green") {
+          document.documentElement.dataset.theme = "green";
+          document.querySelector('meta[name="theme-color"]').content = "#233f35";
+        }
+      } catch {}
+    </script>
+    <link rel="icon" type="image/svg+xml" href="%BASE_URL%favicon.svg" />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="%BASE_URL%" aria-label="PanleMEI 首页">
+          <svg class="brand-logo" viewBox="0 0 234 50" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round">
+<path d="M10 43V18C10 9.7 15.9 5 24 5C33.4 5 40 11.3 40 20C40 29 34.2 35 25 35H20"/>
+<path d="m18 26 7-12 5 8 5-5" stroke-width="2.8"/>
+</g><circle cx="35" cy="17" r="3.2" fill="var(--brand-accent, #aa492d)"/><g transform="translate(58 11)" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+<path d="M2 28V4H10C24 4 24 18 10 18H2"/>
+<path d="M39 28V13M39 20.5C39 10 25 10 25 20.5S39 31 39 20.5"/>
+<path d="M48 28V13M48 20C48 10 62 10 62 20V28"/>
+<path d="M72 4V25Q72 28 75 28"/>
+<path d="M83 20H98C98 9 82 9 82 20C82 29 92 31 98 26"/>
+<g stroke-width="3.8"><path d="M111 28V4L121 19L131 4V28"/><path d="M155 4H142V28H155M142 16H153"/><path d="M167 4V28"/></g>
+</g></svg>
+          <small>把每一次向上，留下来。</small>
+        </a>
+        <div class="nav-heading">
+          我的岩馆
+          <button
+            id="add-gym"
+            class="icon-button"
+            aria-label="添加岩馆"
+          ></button>
+        </div>
+        <form id="gym-form" class="gym-form" hidden>
+          <label class="sr-only" for="gym-name">岩馆名称</label
+          ><input
+            id="gym-name"
+            maxlength="40"
+            placeholder="输入岩馆名称"
+            required
+          /><button class="primary" type="submit">添加</button
+          ><button class="text-button" id="cancel-gym" type="button">
+            取消
+          </button>
+        </form>
+        <div class="gym-directory">
+          <label class="sr-only" for="gym-search">搜索岩馆名称或区名</label>
+          <input
+            id="gym-search"
+            type="search"
+            placeholder="搜索岩馆名称或区名"
+          />
+          <span id="gym-count" role="status"></span>
+        </div>
+        <nav id="gyms" aria-label="按岩馆筛选"></nav>
+        <div class="sidebar-bottom">
+          <p>你的攀爬，你的节奏。</p>
+          <span>从第一条线路，到下一次突破。</span>
+          <div class="backup-actions">
+            <button id="export-data" class="text-button">导出备份</button
+            ><button id="restore-data" class="text-button">恢复备份</button>
+          </div>
+          <input
+            type="file"
+            id="backup-file"
+            accept=".json,application/json"
+            hidden
+          />
+          <div class="local-note">
+            <span class="status-dot"></span
+            ><span id="storage-mode">记录仅保存在此浏览器</span>
+          </div>
+        </div>
+      </aside>
+      <main>
+        <header class="topbar">
+          <span>我的攀岩手记</span>
+          <div class="topbar-actions">
+            <span class="today" id="today"></span>
+            <div class="theme-switch" role="group" aria-label="页面主题">
+              <button type="button" data-theme-choice="green" aria-pressed="false"><span class="theme-swatch" aria-hidden="true"></span>森林</button>
+              <button type="button" data-theme-choice="pink" aria-pressed="true"><span class="theme-swatch" aria-hidden="true"></span>樱粉</button>
+            </div>
+          </div>
+        </header>
+        <div id="storage-error" class="error-banner" role="alert" hidden></div>
+        <section class="page-heading">
+          <div>
+            <div class="title-row">
+              <h1 id="page-title">全部线路</h1>
+              <button id="rename-gym" class="text-button" type="button" hidden>
+                重命名
+              </button>
+            </div>
+            <p>收好想爬的线路，记住爬通的那一刻。</p>
+          </div>
+          <button id="upload" class="primary upload-button"></button>
+          <div class="cloud-account" role="group" aria-label="账号与同步">
+            <div class="account-summary">
+              <div class="account-identity">
+                <span id="account-label" hidden>当前账号</span>
+                <button id="cloud-account" class="text-button" type="button">登录同步</button>
+              </div>
+              <span id="cloud-status" role="status">本机模式</span>
+            </div>
+            <div id="cloud-actions" hidden>
+              <button id="cloud-refresh" class="text-button" type="button">刷新云端</button>
+              <button id="cloud-import" class="text-button" type="button">导入本机记录</button>
+              <button id="cloud-signout" class="text-button" type="button">退出账号</button>
+            </div>
+          </div>
+        </section>
+        <form id="rename-gym-form" class="rename-gym-form" hidden>
+          <label for="rename-gym-name">岩馆新名称</label>
+          <div class="rename-gym-controls">
+            <input
+              id="rename-gym-name"
+              maxlength="40"
+              required
+              autocomplete="off"
+              aria-describedby="rename-gym-error"
+            />
+            <button class="primary" type="submit">保存</button>
+            <button id="cancel-rename-gym" class="text-button" type="button">
+              取消
+            </button>
+          </div>
+          <p id="rename-gym-error" class="form-error" role="alert"></p>
+        </form>
+        <div class="overview" id="overview"></div>
+        <section class="collection" aria-label="线路收藏">
+          <div class="toolbar">
+            <div class="status-tabs" aria-label="通关状态">
+              <button data-status="all" class="active" aria-pressed="true">
+                全部</button
+              ><button data-status="todo" aria-pressed="false">待挑战</button
+              ><button data-status="done" aria-pressed="false">已通关</button>
+            </div>
+            <div class="filter-tools">
+              <label class="search-box"
+                ><span id="search-icon"></span
+                ><input
+                  id="search"
+                  type="search"
+                  placeholder="搜索线路、备注"
+                  aria-label="搜索线路、备注" /></label
+              ><label
+                ><span class="sr-only">筛选难度</span
+                ><select id="grade-filter">
+                  <option value="all">全部难度</option>
+                </select></label
+              ><label
+                ><span class="sr-only">排序</span
+                ><select id="sort">
+                  <option value="new">最新添加</option>
+                  <option value="hard">难度从高到低</option>
+                  <option value="easy">难度从低到高</option>
+                </select></label
+              >
+            </div>
+          </div>
+          <div class="results-line">
+            <span id="result-count"></span
+            ><button id="reset-filter" class="text-button" hidden>
+              清除筛选
+            </button>
+          </div>
+          <div id="gallery" class="gallery"></div>
+          <div id="empty" class="empty-state"></div>
+        </section>
+        <footer>
+          一步一步，爬向自己的下一站。<span>PanleMEI / CLIMBING JOURNAL</span>
+        </footer>
+      </main>
+    </div>
+    <dialog
+      id="upload-dialog"
+      class="upload-dialog"
+      aria-labelledby="upload-title"
+    >
+      <form id="upload-form">
+        <div class="dialog-heading">
+          <div>
+            <h2 id="upload-title">添加线路</h2>
+            <p>照片留住线路，视频记录攀爬。</p>
+          </div>
+          <button
+            type="button"
+            class="icon-button close-dialog"
+            aria-label="关闭"
+          ></button>
+        </div>
+        <div class="form-grid">
+          <label
+            >岩馆 <span class="required">*</span
+            ><input
+              id="upload-gym"
+              list="gym-options"
+              maxlength="40"
+              placeholder="选择或输入岩馆"
+              required /><datalist id="gym-options"></datalist></label
+          ><label
+            >默认难度 · YDS（美式） <span class="required">*</span
+            ><select id="default-grade" required></select
+          ></label>
+        </div>
+        <div class="video-settings">
+          <label for="video-quality">视频压缩</label>
+          <select id="video-quality">
+            <option id="video-quality-fast" value="fast" hidden>快速压缩 · 硬件加速 · 1080p</option>
+            <option id="video-quality-original" value="original" hidden>不压缩 · 原画质上传</option>
+            <option id="video-quality-auto" value="auto" hidden>智能清晰 · 优先保留原画质</option>
+            <option value="small" selected>更省空间 · 480p</option>
+            <option value="standard">清晰 · 720p</option>
+          </select>
+          <p id="video-settings-note">保留原速和声音，压缩后预览再保存。视频一次 1 段，保存上限 20 MB。长视频会自动降低画质以适配保存上限，大文件建议在电脑上处理。首次需加载约 31 MB 工具。</p>
+        </div>
+        <label class="dropzone" id="dropzone"
+          ><input
+            id="photo-files"
+            type="file"
+            accept="image/jpeg,image/png,image/webp,image/avif,image/gif,image/heic,image/heif,video/mp4,video/quicktime,video/webm,.mov,.m4v"
+            multiple
+          /><span id="image-icon"></span
+          ><strong>点击选择，或拖入照片与视频</strong
+          ><span id="media-input-limits">照片每张 ≤ 20 MB · 视频每段 ≤ 1 GB、10 分钟</span><span>照片优先保留细节，适合放大查看线路。</span></label
+        >
+        <div id="processing-status" class="processing-status" hidden>
+          <p id="processing-label" role="status" aria-live="polite"></p>
+          <progress id="processing-progress" max="100" aria-label="视频处理进度"></progress>
+          <div class="processing-actions">
+          <button id="pause-processing" class="text-button" type="button" hidden>暂停处理</button>
+          <button id="cancel-processing" class="text-button" type="button">取消处理</button>
+          </div>
+          <p id="processing-note" hidden></p>
+        </div>
+        <div id="pending-list" class="pending-list"></div>
+        <div id="save-status" class="processing-status" hidden>
+          <p id="save-progress-label" role="status" aria-live="polite"></p>
+          <progress id="save-progress" max="100" aria-label="文件上传进度"></progress>
+        </div>
+        <p id="upload-error" class="form-error" role="alert"></p>
+        <div class="dialog-footer">
+          <span id="upload-hint">照片会自动优化后保存在此浏览器</span
+          ><button type="submit" id="save-upload" class="primary" disabled>
+            保存线路
+          </button>
+        </div>
+      </form>
+    </dialog>
+    <dialog
+      id="detail-dialog"
+      class="detail-dialog"
+      aria-labelledby="detail-title"
+    >
+      <button
+        class="icon-button close-dialog detail-close"
+        aria-label="关闭"
+      ></button>
+      <div id="detail-content"></div>
+    </dialog>
+    <dialog id="auth-dialog" class="auth-dialog" aria-labelledby="auth-title">
+      <form id="auth-form">
+        <div class="dialog-heading">
+          <h2 id="auth-title">登录同步</h2>
+          <button
+            type="button"
+            class="icon-button close-dialog"
+            aria-label="关闭"
+          ></button>
+        </div>
+        <p id="auth-description">登录后，照片和通关记录会保存到你的账号。</p>
+        <label id="auth-email-label"
+          ><span id="auth-identity-label">邮箱</span><input
+            id="auth-email"
+            type="email"
+            autocomplete="email"
+            required
+        /></label>
+        <label id="auth-password-label"
+          >密码<input
+            id="auth-password"
+            type="password"
+            autocomplete="current-password"
+            required
+            minlength="8"
+        /></label>
+        <label id="auth-confirm-label" hidden
+          >确认密码<input id="auth-confirm" type="password" autocomplete="new-password" disabled
+        /></label>
+        <label id="auth-code-label" hidden
+          >邮箱验证码<input id="auth-code" type="text" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{6}" maxlength="6" disabled
+        /></label>
+        <button id="auth-resend" class="text-button" type="button" hidden>重新发送验证码</button>
+        <p id="auth-message" class="form-error" role="status"></p>
+        <button id="auth-submit" class="primary" type="submit">登录</button>
+        <div id="auth-modes">
+          <button type="button" id="auth-toggle" class="text-button">
+            注册账号</button
+          ><button type="button" id="auth-reset" class="text-button">
+            忘记密码
+          </button>
+          <button type="button" id="auth-otp" class="text-button" hidden>邮箱验证码登录</button>
+        </div>
+        <p class="auth-note">当前为内测：验证邮件仅能发送到项目管理员邮箱。</p>
+      </form>
+    </dialog>
+    <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

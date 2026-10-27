@@ -1,0 +1,5 @@
+PanleMEI uses Mediabunny 1.62.1 by Vanilagy under Mozilla Public License 2.0.
+Mediabunny is distributed without modifications. License: mediabunny-MPL-2.0.txt
+Corresponding source: https://www.npmjs.com/package/mediabunny/v/1.62.1
+Source archive: https://registry.npmjs.org/mediabunny/-/mediabunny-1.62.1.tgz
+Project: https://github.com/Vanilagy/mediabunny
