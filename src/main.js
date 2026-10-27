@@ -815,10 +815,10 @@ function openDetail(id) {
   $("#detail-dialog").showModal();
   if (showcase && isVideo(r)) {
     const shareButton = document.createElement('button');
-    shareButton.type = 'button'; shareButton.className = 'text-button'; shareButton.id = 'share-video';
-    shareButton.textContent = '分享至大神展示';
+    shareButton.type = 'button'; shareButton.className = 'primary share-route'; shareButton.id = 'share-video';
+    shareButton.textContent = '分享';
     shareButton.onclick = () => showcase.share(r, gymName(r.gymId));
-    $('#download-video').after(shareButton);
+    $('#edit-form button[type="submit"]').after(shareButton);
   }
   if (isVideo(r)) {
     const status = $('#video-load-status'), download = $('#download-video'), play = $('#play-cloud-video');

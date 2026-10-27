@@ -875,6 +875,10 @@ dialog::backdrop {
   width: 100%;
   margin-top: 15px;
 }
+.detail-form .share-route {
+  min-height: 48px;
+  margin-top: 12px;
+}
 .delete-route {
   color: #a43526;
   display: flex;
