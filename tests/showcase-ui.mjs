@@ -21,7 +21,7 @@ try{
  let op='read',payload,filters=[],start=0,end=11,single=false;
  const q={select(){return q},eq(k,v){filters.push([k,v]);return q},in(k,v){filters.push([k,v]);return q},order(){return q},range(a,b){start=a;end=b;return q},insert(v){op='insert';payload=v;return q},upsert(v){op='upsert';payload=v;return q},update(v){op='update';payload=v;return q},delete(){op='delete';return q},single(){single=true;return q},maybeSingle(){single=true;return q},then(resolve,reject){return Promise.resolve().then(()=>{
  let data;
- if(table==='climb_collections'){data=user?.id==='alice'?{version:1,payload:{gyms:[{id:'g1',name:'Test gym'}],routes:[route]}}:null;if(op!=='read'){if(payload?.payload?.routes?.length){Object.assign(route,payload.payload.routes.find(r=>r.id==='r1')||{});for(const p of posts){p.title=route.name;p.grade=route.grade;p.gym_name=payload.payload.gyms.find(g=>g.id===route.gymId)?.name;}}data={version:2};}}
+ if(table==='climb_collections'){data=user?.id==='alice'?{version:1,payload:{gyms:[{id:'g1',name:'Test gym'},{id:'g2',name:'另一家岩馆'}],routes:[route]}}:null;if(op!=='read'){if(payload?.payload?.routes?.length){Object.assign(route,payload.payload.routes.find(r=>r.id==='r1')||{});for(const p of posts){p.title=route.name;p.grade=route.grade;p.gym_name=payload.payload.gyms.find(g=>g.id===route.gymId)?.name;}}data={version:2};}}
  if(table==='climb_profiles'){
  if(op==='upsert')profiles[payload.user_id]=payload.nickname;
  data=Object.entries(profiles).map(([user_id,nickname])=>({user_id,nickname}));
@@ -35,7 +35,7 @@ try{
  return {data,error:null};
  }).then(resolve,reject)}};return q;}};
  `}));
- await page.goto('http://127.0.0.1:5174/');
+ await page.goto(process.env.TEST_ORIGIN || 'http://127.0.0.1:5174/');
  await expect(page.locator('#cloud-status')).toContainText('已读取云端');
  await page.locator('#edit-nickname').click();await page.locator('#nickname-input').fill('岩上的花 <script>');await page.getByRole('button',{name:'保存昵称',exact:true}).click();
  await expect(page.locator('#edit-nickname')).toContainText('岩上的花 <script>');
@@ -50,7 +50,15 @@ try{
  await page.locator('.showcase-card h3').evaluate(el=>el.textContent='第一次完成 5.10a');
  await page.screenshot({path:'test-results/showcase-mobile.png'});
  await page.locator('[data-edit-share]').click();await expect(page.locator('#detail-dialog')).toBeVisible();
- await page.locator('#edit-form [name="gym"]').fill('更换后的岩馆');await page.locator('#edit-form [name="grade"]').selectOption('5.11a');
+ await expect(page.locator('#edit-form [name="gymId"] option[value="g2"]')).toHaveText('另一家岩馆');
+ await page.locator('#edit-form [name="gymId"]').selectOption('g2');
+ await page.locator('#edit-form button[type="submit"]').click();await expect(page.locator('#detail-dialog')).not.toBeVisible();
+ await page.locator('#gallery .route-card').first().click();
+ await expect(page.locator('#edit-form [name="gymId"]')).toHaveValue('g2');
+ await page.screenshot({path:'test-results/gym-selector-mobile.png'});
+ await page.locator('#edit-form [name="gymId"]').selectOption('__new__');
+ await expect(page.locator('#edit-form [name="newGym"]')).toBeVisible();
+ await page.locator('#edit-form [name="newGym"]').fill('更换后的岩馆');await page.locator('#edit-form [name="grade"]').selectOption('5.11a');
  await page.locator('#edit-form button[type="submit"]').click();await expect(page.locator('#detail-dialog')).not.toBeVisible();
  await page.locator('#open-showcase').click();await expect(page.locator('#showcase-grid')).toContainText('更换后的岩馆');await expect(page.locator('#showcase-grid')).toContainText('5.11a');
  await page.evaluate(()=>window.setTestUser({id:'bob',email:'bob@example.invalid'}));await expect(page.locator('#cloud-account')).toHaveText('bob@example.invalid');
@@ -63,7 +71,7 @@ try{
  await page.locator('#open-showcase').click();await expect(page.locator('#showcase-login')).toBeVisible();await expect(page.locator('#showcase-grid')).toBeEmpty();
  await page.evaluate(()=>window.setTestUser({id:'alice',email:'private@example.invalid'}));await expect(page.locator('#cloud-status')).toContainText('已读取云端');await page.locator('#open-showcase').click();await page.locator('[data-unshare]').click();await expect(page.locator('.showcase-card')).toHaveCount(0);
  await expect(page.locator('#edit-nickname')).toContainText('岩上的花 <script>');
- await page.goto('http://127.0.0.1:5174/?showcase=aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa');
+ await page.goto((process.env.TEST_ORIGIN || 'http://127.0.0.1:5174/')+'?showcase=aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa');
  await expect(page.locator('#showcase-dialog')).toBeVisible();await expect(page.locator('#showcase-status')).toContainText('分享已取消');
  expect(errors).toEqual([]);
  console.log('PASS: nickname persistence and escaping, explicit share, no media on feed, member view, no cross-account controls, lazy play failure/retry, logout cleanup, revoke, mobile layout.');

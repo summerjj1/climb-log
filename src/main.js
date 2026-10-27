@@ -811,7 +811,15 @@ function openDetail(id) {
   const r = state.routes.find((r) => r.id === id);
   if (!r) return;
   $("#detail-content").innerHTML =
-    `<div class="detail-layout"><div class="detail-image">${isVideo(r) ? (r.photo instanceof Blob ? videoPlayer(r) : `<div class="video-on-demand">${safePoster(r.poster) ? `<img src="${r.poster}" alt="${escape(r.name)}视频封面">` : `<span class="video-placeholder">攀爬视频</span>`}<button id="play-cloud-video" type="button" class="primary">${icon("play")}播放视频</button><span>点击后边加载边播放${mediaSize(r) ? ` · ${formatBytes(mediaSize(r))}` : ""}</span></div>`) : `<img src="${photoURL(r)}" alt="${escape(r.name)}完整线路照片">`}</div><form class="detail-form" id="edit-form"><h2 id="detail-title">线路手记</h2>${isVideo(r) ? `<button class="text-button" id="download-video" type="button">下载视频</button><p id="video-load-status" class="video-load-status" role="status" aria-live="polite"></p>` : ""}<label>线路名称<input name="name" value="${escape(r.name)}" maxlength="80" required></label><div class="form-grid"><label>岩馆<input name="gym" list="gym-options" value="${escape(gymName(r.gymId))}" maxlength="40" required></label><label>难度 · YDS<select name="grade" required>${gradeOptions(r.grade)}</select></label></div><label style="margin-top:16px">备注<textarea name="notes" maxlength="2000" placeholder="记下难点、动作，或下一次想尝试的方法…">${escape(r.notes || "")}</textarea></label><label class="check-label"><input name="done" type="checkbox" ${r.done ? "checked" : ""}>这条线路，我已经通关了</label><p class="form-error" id="edit-error" role="alert"></p><button class="primary" type="submit">保存修改</button><button class="text-button delete-route" type="button" id="delete-route">删除这条线路</button></form></div>`;
+    `<div class="detail-layout"><div class="detail-image">${isVideo(r) ? (r.photo instanceof Blob ? videoPlayer(r) : `<div class="video-on-demand">${safePoster(r.poster) ? `<img src="${r.poster}" alt="${escape(r.name)}视频封面">` : `<span class="video-placeholder">攀爬视频</span>`}<button id="play-cloud-video" type="button" class="primary">${icon("play")}播放视频</button><span>点击后边加载边播放${mediaSize(r) ? ` · ${formatBytes(mediaSize(r))}` : ""}</span></div>`) : `<img src="${photoURL(r)}" alt="${escape(r.name)}完整线路照片">`}</div><form class="detail-form" id="edit-form"><h2 id="detail-title">线路手记</h2>${isVideo(r) ? `<button class="text-button" id="download-video" type="button">下载视频</button><p id="video-load-status" class="video-load-status" role="status" aria-live="polite"></p>` : ""}<label>线路名称<input name="name" value="${escape(r.name)}" maxlength="80" required></label><div class="form-grid"><label>岩馆<select name="gymId" required>${state.gyms.map(g => `<option value="${escape(g.id)}" ${g.id === r.gymId ? "selected" : ""}>${escape(g.name)}</option>`).join("")}<option value="__new__">＋ 新增岩馆</option></select></label><label>难度 · YDS<select name="grade" required>${gradeOptions(r.grade)}</select></label></div><label id="edit-new-gym" hidden>新岩馆名称<input name="newGym" maxlength="40" placeholder="输入岩馆名称" disabled></label><label style="margin-top:16px">备注<textarea name="notes" maxlength="2000" placeholder="记下难点、动作，或下一次想尝试的方法…">${escape(r.notes || "")}</textarea></label><label class="check-label"><input name="done" type="checkbox" ${r.done ? "checked" : ""}>这条线路，我已经通关了</label><p class="form-error" id="edit-error" role="alert"></p><button class="primary" type="submit">保存修改</button><button class="text-button delete-route" type="button" id="delete-route">删除这条线路</button></form></div>`;
+  $('#edit-form [name="gymId"]').onchange = (event) => {
+    const adding = event.target.value === '__new__';
+    const input = $('#edit-form [name="newGym"]');
+    $('#edit-new-gym').hidden = !adding;
+    input.disabled = !adding;
+    input.required = adding;
+    if (adding) input.focus();
+  };
   $("#detail-dialog").showModal();
   if (showcase && isVideo(r)) {
     const shareButton = document.createElement('button');
@@ -899,7 +907,8 @@ function openDetail(id) {
     e.preventDefault();
     const data = new FormData(e.target),
       name = data.get("name").trim(),
-      gym = data.get("gym").trim(),
+      gymId = data.get("gymId"),
+      gym = gymId === "__new__" ? (data.get("newGym") || "").trim() : state.gyms.find(g => g.id === gymId)?.name,
       grade = normalizeGrade(data.get("grade"));
     if (!name || !gym || !grade) {
       $("#edit-error").textContent = "线路名称、岩馆和难度不能为空。";
@@ -909,9 +918,9 @@ function openDetail(id) {
     button.disabled = true;
     try {
       await commit((s) => {
-        let venue = s.gyms.find(
-          (g) => g.name.toLowerCase() === gym.toLowerCase(),
-        );
+        let venue = gymId === "__new__"
+          ? s.gyms.find(g => g.name.toLowerCase() === gym.toLowerCase())
+          : s.gyms.find(g => g.id === gymId);
         const gyms = [...s.gyms];
         if (!venue) {
           venue = { id: crypto.randomUUID(), name: gym };
